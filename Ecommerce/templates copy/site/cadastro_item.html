@@ -1,0 +1,16 @@
+{% extends 'layouts/layout.html' %}
+{% load static %}
+{% block title %}
+<title>Cadastrar Item</title>
+{% endblock %}
+{% block content %}
+    <form action="{% url 'criar_item' %}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{forms.as_p}}
+      <button type="submit" class="btn btn-success">Criar Item</button>
+    </form>
+    <!--Footer Início-->  
+  {% include 'partials/_footer.html' %}
+    
+  <!--Footer Fim-->  
+{% endblock %}

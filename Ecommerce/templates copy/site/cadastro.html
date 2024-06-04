@@ -1,0 +1,54 @@
+{% extends 'layouts/layout.html' %}
+{% load static %}
+{% block content %}
+
+{% include "partials/_alerts.html"%}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+        <script src="{% static 'assets/js/bootstrap.bundle.js' %}"></script>
+
+        <title>login RHM Lanches</title>
+
+        <link rel="canonical" href="{% static 'https://getbootstrap.com/docs/4.0/examples/sign-in/' %}">
+
+        <!-- Bootstrap core CSS -->
+        <link href="{% static '../../dist/css/bootstrap.min.css' %}" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="{% static 'signin.css' %}" rel="stylesheet">
+    </head>
+
+<body class="text-center " style="background-color: rgb(188, 98, 248);">
+    <div style="width: 100%; padding-top: 6%; " class="d-flex justify-content-center ">    
+
+        <form class="form-signin" action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+
+        <img class="mb-4" src="{% static 'assets/img/roupa.png' %}" alt="Logo" width="150" height="150">
+        <h1 class="h3 mb-3 font-weight-normal">Conecte-se, Por Favor</h1>
+        <label for="inputUsername" class="sr-only">Username</label>
+        <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Nome do usuario" required="" autofocus="">
+        <label for="inputEmail" class="sr-only">Email</label>
+        <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email" required="" autofocus="">
+        <label for="inputPassword" class="sr-only">Senha</label>
+        <input type="password" id="inputPassword" name="senha" class="form-control" placeholder="Senha" required="">
+        <div class="checkbox mb-3">
+            <label>
+            <input type="checkbox" value="remember-me"> Remember me
+            </label>
+        </div>
+        <button class="btn btn-lg btn-danger btn-block" type="submit" href="./index.html">Registrar</button>
+        <p class="mt-5 mb-3 text-muted">© 2020-2024</p>
+        </form>
+
+    </div>
+</body>
+</html>
+{% endblock %}

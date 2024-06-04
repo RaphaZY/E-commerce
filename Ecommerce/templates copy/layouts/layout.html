@@ -1,0 +1,83 @@
+
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% block title %}
+        {% endblock %}
+        <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+        <script src="{% static 'assets/js/bootstrap.bundle.js' %}"></script>
+        <style>
+            header{
+            background-image: linear-gradient(rgb(147, 57, 250) , rgb(188, 98, 248));
+            height: 100%;
+            width: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            
+            }
+            .tr{
+            color: rgb(0, 0, 0);
+            }
+            nav a{
+            color:rgb(0, 0, 0);
+            text-decoration: none;
+            
+            }
+            .promo{
+            color:#fff;
+            background-color: #000;
+            }
+            .sobre{
+            background-image: linear-gradient(rgb(147, 57, 250) , rgb(188, 98, 248));
+            }
+            .carousel-inner{
+            max-height:600px;
+            }
+            .text{
+            font-size: 11px;
+            }
+            
+            footer{
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            position: absolute;
+            width: 100%;
+            padding-top: 6px;
+            }
+            hr{ 
+            border: 1px solid #000;
+            
+            }
+            .h1-1{
+            font-size: 46px;
+            }
+            #m{
+            margin-right: 0;
+            }
+            @media screen and (max-width: 450px){
+            .fs-5{
+                font-size: 15px!important;
+                }
+            } 
+        </style>
+    </head>
+	<body>
+
+    {% block content %} 
+    {% endblock %}
+    <!-- Scripts -->
+        <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+        <script src="{% static 'assets/js/jquery.scrolly.min.js' %}"></script>
+        <script src="{% static 'assets/js/browser.min.js' %}"></script>
+        <script src="{% static 'assets/js/breakpoints.min.js' %}"></script>
+        <script src="{% static 'assets/js/util.js' %}"></script>
+        <script src="{% static 'assets/js/main.js' %}"></script>
+
+	</body>
+</html>

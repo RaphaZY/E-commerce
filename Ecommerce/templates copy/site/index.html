@@ -1,0 +1,169 @@
+{% extends 'layouts/layout.html' %}
+{% load static %}
+
+
+{% block title %}
+<title>loja</title>
+{% endblock %}
+
+
+{% block content %}
+{% include "partials/_alerts.html"%}
+    
+
+  <!--Header Inicio-->
+  {% include 'partials/_header.html' %}
+  <!--Header Fim-->
+  <!--Main Inicio-->  
+    <main>
+      <!--section1 Inicio-->
+        <section>
+         
+        </section>
+        <section>
+          <div id="carouselExampleIndicators" class="carousel slide">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" class="active" aria-current="true"></button>
+            </div>
+            <div class="carousel-inner rounded">
+              <div class="carousel-item" style="object-fit: cover;">
+                <img src="{% static 'assets/img/slide1.png' %}"  class="d-block w-100" alt="Slide-1" height="100%">
+              </div>
+              <div class="carousel-item" style="object-fit: cover;">
+                <img src="{% static 'assets/img/slide2.jpg' %}"  class="d-block w-100" alt="Slide-2" height="100%">
+              </div>
+              <div class="carousel-item active" style="object-fit: cover;">
+                <img src="{% static 'assets/img/slide4.jpg' %}"  class="d-block w-100" alt="Slide-3" height="100%">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </section>
+      <!--Section1 Fim-->  
+      <!--Section2 Inicio-->
+        <section style="padding-top: 15px;">
+          <div class="promo">
+            <h2 class="d-flex justify-content-center py-4">Promoções</h2>
+          </div>
+          <div class="container text-center">
+            <div class="row" id="m">
+              
+              <div class="col-xl-3 col-md-6 col-sm-12 d-flex justify-content-center py-2">
+                <div class="card" style="width: 18rem;">
+                  <img src="{% static 'assets/img/short.png' %}" class="card-img-top" alt="Cad1">
+                  <div class="card-body">
+                    <h5 class="card-title">Caixa de Ferramentas</h5>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item text-decoration-line-through fw-medium text-success">DE R$ 35.00</li>
+                      <li class="list-group-item fw-medium text-success">Para R$ 25.00</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Adicionar ao Pedido</a>
+                  </div>
+                </div>
+              </div>
+                  
+            </div>      
+          </div>        
+        </section>
+      <!--Section2 Fim-->  
+      <!--Section3 Inicio-->
+        <section>
+          <div class="promo">
+              <h2 class="d-flex justify-content-center py-4">Produtos</h2>
+          </div>
+          <div class=" text-center">
+            <div class="row" id="m">
+              
+              <div class="col-xl-3 col-md-6 col-sm-12 d-flex justify-content-center py-2">
+                <div class="card" style="width: 18rem;">
+                  <img src="{% static 'assets/img/sut.png' %}" class="card-img-top" alt="Produto1">
+                  <div class="card-body">
+                    <h5 class="card-title">Martelo Profissional</h5>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item fw-medium text-success">Preço: R$ 32.50</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Adicionar ao Pedido</a>
+                  </div>
+                </div>
+              </div>
+
+              {% include 'partials/_cards.html' %}
+                  
+            </div>      
+          </div>        
+        </section>
+      <!--Section3 Fim-->    
+      <!--Section4 Inicio-->  
+        <section class="sobre pt-5">
+          <Div class="d-flex justify-content-center px-5">
+            <div class="row">
+              <div class="col-lg-4 col-md-6">
+                <img src="{% static 'assets/img/sobree.png' %}" alt="sobre" height="90%" width="100%">
+              </div>
+              <div class="text-center col-lg-7 col-md-6 pt-5 tr">
+                <p class="fs-2 fw-bold">Presente para seu amigo construtor<br><br>A vida é curta demais para não comprar uma nova ferramenta.<br><br> Uma ferramenta boa serve como duas</b></p>
+              </div>
+            </div>
+          </Div>           
+        </section>
+      <!--Section4 Fim--> 
+      <!--Section5 Inicio-->
+        <Section>
+          <Div class="d-flex justify-content-center px-5">
+            <div class="row">
+              <div class="col-lg-4 d-flex justify-content-center">
+                <div class="d-flex" style="align-items: center;">
+                  <img src="{% static 'assets/img/mascote.png' %}" alt="sobre" height="400px" width="90%">
+                </div>
+              </div>
+              <div class="text-center col-lg-7 pt-5">
+                <H1 class="fw-bold display-3">Ferramentas Max</H1>
+                <H2 class="fw-bold">Nossa Historia</H2>
+                <p class="fw-medium fs-5">Tudo começou com um construtor chamado Raphael que entre suas viagens e experiências, ele analisava os melhores instrumentos junto com seus amigos  Maria Rita e Hadson para criar os melhores kits de Ferramentas. Coincidência ou não, Raphael era o “Especialista” para os amigos.<br>
+                  <br>Entre experiências e outros trabalhos, o sonho de empreender começou a tomar forma e finalmente em 2024 os amigos resolveram investir na primeira unidade localizada em Descoberto/MG, surgindo assim a Ferramentas Max. <br>
+                  <br>Devido ao projeto de expansão executado na micro região, a Ferramentas Max possui atualmente 13 unidades em dez cidades, devido a excelência e a qualidade dos produtos e serviços.</p>
+              </div>
+            </div>
+          </Div>       
+        </Section>
+      <!--Section5 Fim--> 
+      <!--Section6 Inicio-->
+        <section> 
+          <div class="promo">
+              <h2 class="d-flex justify-content-center py-4">Fale Com Nós</h2>
+          </div>
+          <div class="px-5">
+            <div class="my-5 row">
+              <label for="inputPassword" class="col-sm-2 col-form-label"><h4 class="fs-2"> Email:</h4></label>
+              <div class="col-sm-10">
+                <input type="Text" placeholder="Nome@Exemplo" class="form-control" id="Text">
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="inputPassword" class="col-sm-2 col-form-label"><h4 class="fs-2"> Mensagem:</h4></label>
+              <div class="col-sm-10">
+                <textarea class="form-control" placeholder="Texto" id="exampleFormControlTextarea1" rows="3" style="height: 119px;"></textarea>
+              </div>
+            </div>
+            <div class="text-center">
+              <button type="button" class="btn btn-outline-success">Enviar</button>
+            </div>
+          </div>
+      </section>
+  <!--Section6 Fim--> 
+    </main>
+  <!--Main Fim-->
+  <!--Footer Inicio-->
+  {% include 'partials/_footer.html' %}
+    
+  <!--Footer Fim-->  
+{% endblock %}

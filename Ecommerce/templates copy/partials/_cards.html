@@ -1,0 +1,15 @@
+{% load static %}
+{% for item in itens %}
+<div class="col-xl-3 col-md-6 col-sm-12 d-flex justify-content-center py-2">
+    <div class="card" style="width: 18rem;">
+      <img src="{{ item.path.url }}" class="card-img-top" alt="{{ item.name }}">
+      <div class="card-body">
+        <h5 class="card-title">{{item.name}}</h5>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item fw-medium text-success">Preço: R$ {{ item.price }}</li>
+        </ul>
+        <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
+      </div>
+    </div>
+  </div>
+{% endfor %}

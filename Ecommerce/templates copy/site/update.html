@@ -1,0 +1,21 @@
+{% extends 'site/index.html' %}
+{% load static %}
+{% block title %}
+<title>Titulo da Página</title>
+{% endblock %}
+{% block content %}
+<div class="container">
+  {%if item.path%}
+  <img src="{{item.path.url}}" alt="item.name" width="200px" height="200px">
+  {%endif%}
+<form action="{% url 'atualizar_item' item.id %}" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{form.as_p}}
+  <button type="submit" class= "btn btn-primary">Atualizar</div>
+</form>
+</div>
+
+  {% include 'partials/_footer.html' %}
+    
+  <!--Footer Fim-->  
+{% endblock %}
