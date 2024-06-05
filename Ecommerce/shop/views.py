@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
 from shop.models import  *
 from shop.forms import *
 from django.contrib import messages
@@ -58,7 +58,8 @@ def logout(request):
 
 
 def index(request):
-    return render(request, 'site/index.html',{"itens": Product.objects.all()})
+    produtos = Product.objects.all()
+    return render(request, 'site/index.html', {"itens": produtos})
 
 @login_required
 def create(request):
@@ -72,25 +73,32 @@ def create(request):
         
     return render(request, "site/cadastro_item.html", {"forms":form})
 
-def create_cart(request):
-    id_user = request.user.id
-    cart = Cart(user=id_user, created_at=datetime.now())
-    cart.save()
+# def create_cart(request):
+#     id_user = request.user.id
+#     cart, created = Cart.objects.get_or_create(user_id=id_user, is_active=True, defaults={'created_at': datetime.now()})
+#     if not created:
+#         cart.created_at = datetime.now()
+#         cart.save()
+#     return cart
     
-
-def addcarrinho(request, id):
-    id_user = request.user.id
-    cart = Cart.objects.get(user=id_user, created_at=datetime.now())
-    quantidade = 1
-    add = CartItem(product=id, quantity=quantidade, cart=cart.id)
-    add.save()
+# @login_required
+# def addcarrinho(request, id):
+#     cart, created = Cart.objects.get_or_create(user=request.user, is_active=True)
+#     product = get_object_or_404(Product, id=id)
     
-    return render(request, "site/carrinho.html",{"item":Product.objects.all(), "cart": User.objects.all()})
+#     cart_item, created = CartItem.objects.get_or_create(cart=cart, product=product, defaults={'quantity': 1})
+#     if not created:
+#         cart_item.quantity += 1
+#         cart_item.save()
+    
+#     messages.success(request, f'{product.name} adicionado ao carrinho!')
+#     return redirect('carrinho')
 
-@login_required
-def carrinho(request):
-    x = User.objects.all()
-    return render(request, "site/carrinho.html", {"item":Product.objects.all(), "cart": x})
+# @login_required
+# def carrinho(request):
+#     cart = Cart.objects.filter(user=request.user, is_active=True).first()
+#     items = CartItem.objects.filter(cart=cart) if cart else []
+#     return render(request, "site/carrinho.html", {"items": items})
 
 @login_required
 def edit(request, id):

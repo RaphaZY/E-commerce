@@ -14,6 +14,7 @@ urlpatterns = [
     path("itens/lista/", all, name="lista_item"),
     path("itens/deletar/<int:id>", delete, name="deletar_item"),
     path("logout/", logout , name="logout"), 
-    path("carrinho/", carrinho, name="carrinho"),
+    # path("carrinho/", carrinho, name="carrinho"),
+    # path("carrinho/adicionar/<int:id>/", addcarrinho, name="addcarrinho"),
 
 ]
