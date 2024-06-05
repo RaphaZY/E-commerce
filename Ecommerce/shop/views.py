@@ -72,22 +72,25 @@ def create(request):
         
     return render(request, "site/cadastro_item.html", {"forms":form})
 
-# @login_required
-# def carrinho(request, id):
-#     id_user = request.user.id
-#     cart = Cart(user=id_user, created_at=datetime.now())
-#     cart.save()
+def create_cart(request):
+    id_user = request.user.id
+    cart = Cart(user=id_user, created_at=datetime.now())
+    cart.save()
     
-#     if cart:
 
-#         quantidade = 1
-#         add = CartItem(product=id, quantity=quantidade, cart=cart.id)
-#         add.save()
+def addcarrinho(request, id):
+    id_user = request.user.id
+    cart = Cart.objects.get(user=id_user, created_at=datetime.now())
+    quantidade = 1
+    add = CartItem(product=id, quantity=quantidade, cart=cart.id)
+    add.save()
     
-#     else:
-    
-#         return render(request, "site/carrinho.html",{"item":item})
+    return render(request, "site/carrinho.html",{"item":Product.objects.all(), "cart": User.objects.all()})
 
+@login_required
+def carrinho(request):
+    x = User.objects.all()
+    return render(request, "site/carrinho.html", {"item":Product.objects.all(), "cart": x})
 
 @login_required
 def edit(request, id):
